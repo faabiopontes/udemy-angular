@@ -1,16 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {NgModule}      from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {Component} from '@angular/core';
 
-import { AppComponent } from './app.component';
+@Component({
+  selector: 'joke',
+  template: `
+    <h1>What did the cheese say when it looked in the mirror?</h1>
+    <p>Halloumi (Hello Me)</p>
+  `
+})
+export class JokeComponent {
+}
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule],
+  declarations: [JokeComponent],
+  bootstrap: [JokeComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);
