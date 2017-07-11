@@ -1,25 +1,11 @@
-import { Component, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-@Component({
-  selector: 'joke',
-  template: `
-  <h1>What did the cheese say when it looked in the mirror?</h1>
-  <p>Halloumi (hello me)</p>
-  `
-})
-class JokeComponent {
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
 
-}
-
-@NgModule({
-  imports:[BrowserModule],
-  declarations: [JokeComponent],
-  bootstrap: [JokeComponent]
-})
-class AppModule {
-
+if (environment.production) {
+  enableProdMode();
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
