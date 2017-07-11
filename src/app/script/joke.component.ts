@@ -6,19 +6,16 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'joke',
   template: `
-    <h1>What did the cheese say when it looked in the mirror?</h1>
-    <p>Halloumi (Hello Me)</p>
+    <h1>{{ setup }}</h1>
+    <p>{{ punchline }}</p>
   `
 })
 export class JokeComponent {
-}
+  setup: string;
+  punchline: string;
 
-@NgModule({
-  imports: [BrowserModule],
-  declarations: [JokeComponent],
-  bootstrap: [JokeComponent]
-})
-export class AppModule {
+  constructor() {
+    this.setup = "What did the cheese say when it looked in the mirror?";
+    this.punchline = "Halloumi (hello me)";
+  }
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule);
