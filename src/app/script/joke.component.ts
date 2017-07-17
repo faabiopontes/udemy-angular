@@ -1,4 +1,7 @@
 import {Component} from '@angular/core';
+import { Joke } from './joke.class';
+
+let joke = new Joke("What did the cheese say when it looked in the mirror?","Halloumi (hello me)");
 
 @Component({
   selector: 'joke',
