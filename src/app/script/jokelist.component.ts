@@ -4,13 +4,7 @@ import { Joke } from './joke.class';
 @Component({
   selector: 'joke-list',
   template: `
-<div class="card card-block"
-    *ngFor="let joke of jokes">
-  <h4 class="card-title">{{ joke.setup }}</h4>
-  <p class="card-text" [hidden]="joke.hide">{{ joke.punchline }}</p>
-  <button class="btn btn-primary"
-    (click)="joke.toggle()">Tell Me</button>
-</div>
+    <joke *ngFor="let j of jokes" [joke]="j"></joke>
 `
 })
 export class JokeListComponent {
