@@ -5,7 +5,10 @@ import { Joke } from './joke.class';
   selector: 'joke-list',
   template: `
     <joke-form (jokeCreated)="addJoke($event)"></joke-form>
-    <joke *ngFor="let j of jokes" [joke]="j"></joke>
+    <joke
+      (jokeDeleted)="deleteJoke($event)"
+      *ngFor="let j of jokes"
+      [joke]="j"></joke>
 `
 })
 export class JokeListComponent {
@@ -22,5 +25,15 @@ export class JokeListComponent {
   addJoke(joke) {
     // unshift() adds to the beginning of the array, like a stack
     this.jokes.unshift(joke);
+  }
+
+  /*
+  TODO: Flesh out the below function to actually delete a joke from the list. Have the function called when the user clicks the delete button.
+  */
+  deleteJoke(joke) {
+    let indexToDelete = this.jokes.indexOf(joke);
+    if (indexToDelete !== -1) {
+      this.jokes.splice(indexToDelete,1);
+    }
   }
 }
